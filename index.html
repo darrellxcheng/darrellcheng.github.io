@@ -18,13 +18,13 @@
 
   <style>
     :root{
-      --bg: #0b0c10;
+      --bg: #000000;
       --bg-soft: #111218;
       --text: #e8e8ea;
       --muted: #a4a5ad;
       --card: #151823;
-      --accent: #8aa3ff; /* tweak this to your brand color */
-      --accent-2: #70ffd5;
+      --accent: #00ffa8; /* tweak this to your brand color */
+      --accent-2: #002d5e;
       --maxw: 1100px;
       --radius: 16px;
       --shadow: 0 10px 30px rgba(64, 64, 64, 0.35);
@@ -68,9 +68,10 @@
     @media (min-width:720px){ .card{grid-column:span 6} }
     @media (min-width:1024px){ .card{grid-column:span 4} }
 
-    .timeline{border-left:2px dashed rgba(255,255,255,.12); margin-left:12px; padding-left:18px}
+    .timeline{border-left:2px dashed rgba(118, 155, 230, 0.12); margin-left:12px; padding-left:18px}
     .titem{position:relative; margin-bottom:18px}
-    .titem:before{content:""; position:absolute; left:-29px; top:4px; width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 0 0 4px rgba(138,163,255,.15)}
+    .titem:before{content:""; position:absolute; left:-29px; top:4px; width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 0 0 4px rgba(0, 0, 0, 0.15)
+    }
     .titem h3{margin:0; font-size:18px}
     .titem .meta{color:var(--muted); font-size:14px; margin:2px 0 6px}
 
@@ -85,7 +86,7 @@
       body{background:radial-gradient(1200px 600px at 20% -10%, rgba(138,163,255,.25), transparent 50%),
                          radial-gradient(800px 500px at 90% 10%, rgba(112,255,213,.15), transparent 40%), var(--bg);}
     }
-    */
+
 
     /* Print */
     @media print{ header{position:static} .btn,.social{display:none} body{background:#fff; color:#000} .card{box-shadow:none} }
@@ -199,22 +200,6 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-
-  <!-- JSON-LD Schema (tweak fields) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Darrell Cheng",
-    "url": "https://github.com/darrellxcheng",
-    "sameAs": [
-      "https://github.com/darrellxcheng",
-      "https://www.linkedin.com/in/darrell-c-718926194/"
-    ],
-    "jobTitle": "Researcher / Engineer",
-    "worksFor": {"@type": "Organization", "Darrell Cheng": "Your Org"}
-  }
   </script>
 </body>
 </html>
