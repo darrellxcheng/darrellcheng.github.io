@@ -1,19 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!--
+    This section contains essential metadata and resources for the web page.
+    - <meta charset="utf-8" />: Sets the character encoding to UTF-8 for proper text rendering.
+    - <meta name="viewport" ...>: Ensures responsive design on mobile devices.
+    - <title>: Sets the browser tab/page title.
+    - <meta name="description">: Provides a summary for search engines and social sharing.
+    - Open Graph/Twitter meta tags: Enhance how the page appears when shared on social media.
+    - Google Fonts link: Loads the Inter font family for improved typography.
+  -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Darrell Cheng — Portfolio</title>
-  <meta name="description" content="Personal portfolio: projects, publications, and contact." />
+  <meta name="description" content="Personal portfolio: projects and contact information." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Darrell Cheng — Portfolio" />
-  <meta property="og:description" content="Projects, publications, and contact." />
+  <meta property="og:description" content="Personal portfolio: projects and contact information." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://your-domain-or-username.github.io/og-card.png" />
+  <meta property="og:image" content="https://darrellcheng.github.io/_assets/images/headshotcompressed.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Optional: Google Fonts (feel free to remove and rely on system fonts) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -23,7 +31,7 @@
       --text: #e8e8ea;
       --muted: #a4a5ad;
       --card: #151823;
-      --accent: #00ffa8; /* tweak this to your brand color */
+      --accent: #00ffa8; 
       --accent-2: #002d5e;
       --maxw: 1100px;
       --radius: 16px;
@@ -80,7 +88,7 @@
     .icon-link{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:999px; border:1px solid rgba(255,255,255,.1); text-decoration:none}
     .icon-link:hover{border-color:rgba(255,255,255,.2)}
 
-    /* Light mode (optional): uncomment to force light theme)
+    /* Light mode
     @media (prefers-color-scheme: light){
       :root{ --bg:#f7f8fc; --bg-soft:#fff; --text:#121319; --muted:#5a5f72; --card:#fff; --shadow:0 16px 40px rgba(0,0,0,.08)}
       body{background:radial-gradient(1200px 600px at 20% -10%, rgba(138,163,255,.25), transparent 50%),
@@ -110,7 +118,7 @@
       <h1 id="intro">Software Engineer|Data Analytics|Game Developer|Technical Artist|Bioinformatics|Sustainability — building technical tools for a better world</h1>
       <p>Placeholder tagline</p>
       <div class="cta">
-        <a class="btn primary" href="\_documents\resume.pdf" target="_blank" rel="noopener">Resumé</a>
+        <a class="btn primary" href="_documents/resume.pdf" target="_blank" rel="noopener">Resumé</a>
         <a class="btn" href="https://github.com/darrellxcheng" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="mailto:dc2000a@gmail.com">Email</a>
       </div>
