@@ -1,17 +1,31 @@
 :root {
-		--bg: #000000;
-		--bg-soft: #111218;
-		--text: #e8e8ea;
-		--muted: #a4a5ad;
-		--card: #151823;
-		--accent: #00ffa8;
-		--accent-2: #002d5e;
-		--maxw: 1100px;
+        --maxw: 1200px;
 		--radius: 16px;
-		--shadow: 0 10px 30px rgba(64, 64, 64, 0.35);
-		--header-bg: rgba(4, 4, 7, 0.55);
-		--header-border: rgba(255, 255, 255, .06);
+		--bg: #343434;
+		--bg-soft: #343434;
+		--text: #f7f8ff;
+		--muted: #f7f8ff;
+		--card: #000000;
+		--accent: #b0e0f4;
+		--accent-2: #2d166b;
+		--shadow: 0 16px 40px rgba(156, 234, 255, 0.35);
+		--header-bg: #343434;
+		--header-border: rgba(255, 255, 255, 0.06);
 	}
+
+    /* Light Theme */
+[data-theme="light"] {
+    --bg: #dce1f3;
+    --bg-soft: #dce1f3;
+    --text: #20295c;
+    --muted: #20295c;
+    --card: #ffffff;
+    --accent: #20295c;
+	--accent-2: #20295c;
+    --shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --header-border: rgba(172, 180, 191, 0.527);
+}
 	
 	html {
 		scroll-behavior: smooth;
@@ -21,8 +35,9 @@
 		margin: 0;
 		font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 		color: var(--text);
-		background: radial-gradient(1200px 600px at 20% -10%, rgba(138, 163, 255, .25), transparent 50%), radial-gradient(800px 500px at 90% 10%, rgba(112, 255, 213, .15), transparent 40%), var(--bg);
+		background: radial-gradient(600px 600px at 20% -10%, rgba(16, 68, 255, 0.25), transparent 50%), radial-gradient(800px 500px at 90% 10%, rgba(255, 255, 255, 0.15), transparent 40%), var(--bg);
 		line-height: 1.6;
+		transition: background 0.3s ease, color 0.3s ease;
 	}
 	
 	.container {
@@ -34,10 +49,11 @@
 	header {
 		position: sticky;
 		top: 0;
-		backdrop-filter: saturate(140%) blur(8px);
+		backdrop-filter: saturate(100%) blur(10px);
 		background: var(--header-bg);
-		border-bottom: 1px solid var(--header-border);
+		border-bottom: 2px solid var(--header-border);
 		z-index: 100;
+		transition: background-color 0.3s ease, border-color 0.3s ease;
 	}
 	
 	.nav {
@@ -60,7 +76,7 @@
 		height: 12px;
 		border-radius: 50%;
 		background: linear-gradient(135deg, var(--accent), var(--accent-2));
-		box-shadow: 0 0 24px rgba(138, 163, 255, .6)
+		box-shadow: 0 0 24px rgba(8, 50, 202, 0.6)
 	}
 	.brand .profile-dot {
     width: 20px;
@@ -73,7 +89,8 @@
 	.nav a {
 		color: var(--muted);
 		text-decoration: none;
-		font-weight: 500
+		font-weight: 500;
+		transition: color 0.3s ease;
 	}
 	
 	.nav a:hover {
@@ -156,7 +173,8 @@
 		border: 1px solid rgba(255, 255, 255, .06);
 		border-radius: var(--radius);
 		padding: 18px;
-		box-shadow: var(--shadow)
+		box-shadow: var(--shadow);
+		transition: background-color 0.3s ease, box-shadow 0.3s ease;
 	}
 	
 	.card:hover {
@@ -287,7 +305,7 @@
     position: relative;
     width: 46px;  
     height: 24px; 
-    margin-left: 12px;
+    margin-left: 36px;
 }
 
 .flipswitch input[type=checkbox] {
@@ -352,18 +370,7 @@
 }
 /* #endregion */
 
-/* Light Theme */
-[data-theme="light"] {
-    --bg: #dce1f3;
-    --bg-soft: #dce1f3;
-    --text: #20295c;
-    --muted: #20295c;
-    --card: #ffffff;
-    --shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-    /* Add header specific styles */
-    --header-bg: rgba(255, 255, 255, 0.85);
-    --header-border: rgba(172, 180, 191, 0.527);
-}
+
 	
 /*  #region Print Stuff */
 	@media print {
