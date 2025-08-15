@@ -22,7 +22,6 @@
 
 	<nav class="links" aria-label="Primary">
 </nav>
-</nav>
 
 </head>
 
@@ -58,7 +57,7 @@
 </div>
 </div>
         <nav class="links" aria-label="Primary">
-            <a href="#projects">Projects</a>
+            <a href="#projects">Work</a>
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
             <a href="/aboutme.html">About</a>
@@ -71,13 +70,6 @@
 			<h1 id="intro">Developer|Bioinformatics|Sustainability</h1>
 			<p>Software Engineer, Data Scientist, Bioinformatician, Technical Artist, Game Developer. Building technical solutions for a better world. </p>
 			<div class="cta">
-				<a class="btn icon-btn" href="/assets/documents/resume.pdf" target="_blank" rel="noopener" aria-label="Resumé">
-					<svg width="20" height="20" fill="var(--accent)" viewBox="0 0 24 24" aria-hidden="true">
-						<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm1 0v6h6"/>
-						<rect x="8" y="13" width="8" height="2" rx="1"/>
-						<rect x="8" y="17" width="5" height="2" rx="1"/>
-					</svg>
-				</a>
 				<a class="btn icon-btn" href="https://github.com/darrellxcheng" target="_blank" rel="noopener" aria-label="GitHub">
 					<svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true">
 						<path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.48v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.12-1.5-1.12-1.5-.92-.64.07-.63.07-.63 1.02.07 1.56 1.07 1.56 1.07.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.04-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.04a9.2 9.2 0 015 0c1.9-1.31 2.74-1.04 2.74-1.04.55 1.4.2 2.44.1 2.7.65.72 1.04 1.63 1.04 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.95.68 1.92v2.85c0 .27.18.59.69.49A10.03 10.03 0 0022 12.26C22 6.58 17.52 2 12 2z"/>
@@ -96,14 +88,13 @@
 			</div></svg></div>
 		</section>
 		<section id="projects" class="section" aria-labelledby="projects-title">
-			<h2 id="projects-title">Projects</h2>
-			<p class="lead">Placeholder lead</p>
+			<h2 id="projects-title">Work</h2>
 			<div class="grid">
 				<article class="card">
 					<div class="thumb" aria-hidden="true"></div>
 					<h3><a href="link">title</a></h3>
 					<p>desc</p>
-					<div class="badges"> <span class="badge"</svg></span>>tag1</span> <span class="badge">tag2</span> <span class="badge">tag3</span> </div>
+					<div class="badges"> <span class="badge">tag1</span> <span class="badge">tag2</span> <span class="badge">tag3</span> </div>
 				</article>
 				<article class="card">
 					<div class="thumb" aria-hidden="true"></div>
@@ -119,10 +110,16 @@
 				</article>
 			</div>
 		</section>
-		<section id="experience" class="section" aria-labelledby="exp-title">
-			<h2 id="exp-title">Experience</h2>
-			<div class="timeline">
-				<div class="titem">
+		<section id="experience" class="section collapsible" aria-labelledby="exp-title">
+    <div class="section-header" tabindex="0">
+        <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h2 id="exp-title">Experience</h2>
+    </div>
+    <div class="content">
+        <div class="timeline">
+            <div class="titem">
 					<h3>position1</h3>
 					<div class="meta">date · location </div>
 					<p>description</p>
@@ -132,23 +129,30 @@
 					<div class="meta">date · location</div>
 					<p>description</p>
 				</div>
-			</div>
-		</section>
-		<section id="education" class="section" aria-labelledby="edu-title">
-			<h2 id="ed-title">Education</h2>
-			<div class="timeline">
-				<div class="titem">
-					<h3>masters</h3>
-					<div class="meta">date · location </div>
-					<p>description</p>
-				</div>
-				<div class="titem">
-					<h3>bachelors</h3>
-					<div class="meta">date · location</div>
-					<p>description</p>
-				</div>
-			</div>
-		</section>
+        </div>
+    </div>
+</section>
+		<section id="education" class="section collapsible" aria-labelledby="edu-title">
+    <div class="section-header" tabindex="0">
+        <svg class="chevron" width="24" height="24" viewBox="0 0 16 30" fill="none" stroke="currentColor">
+            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h2 id="edu-title">Education</h2>
+    </div>
+    <div class="content">
+        <div class="timeline">
+            <div class="titem">
+                <h3>Master of Science - MS, Computational Life Sciences</h3>
+                <div class="meta">Jan 2024 - May 2025 · Arizona State University </div>
+            </div>
+            <div class="titem">
+                <h3>Bachelor of Science - BS, Sustainability</h3>
+                <div class="meta">Aug 2019 - Dec 2023 · Arizona State University</div>
+                
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
@@ -162,8 +166,13 @@
     </section>-->
 		<section id="contact" class="section" aria-labelledby="contact-title">
 			<h2 id="contact-title">Contact</h2>
-			<p class="lead">Open to opportunity. Please reach me via email or the contact form if you are interested.</p>
+			<p class="lead">Open to opportunity. Please reach me via any of the below if you are interested.</p>
 			<div class="social">
+				<a class="icon-link" href="tel:+14803531378" aria-label="Phone">
+					<svg width="20" height="20" fill="var(--accent)" viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 4.5A1 1 0 013 3.5H6.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/>
+					</svg>
+				</a>
 				<a class="icon-link" href="mailto:dc2000a@gmail.com " aria-label="Email">
 					<svg width="20" height="20" fill="var(--accent)" viewBox="0 0 24 24" aria-hidden="true">
 						<path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /> </svg>
@@ -182,7 +191,9 @@
 	</main>
 	<footer class="container"> <small>© <span id="y"></span> Darrell Cheng. Built with GitHub Pages & hosted via Spaceship.</small> </footer>
 
-	<script>
+	<div class="page-transition"></div><div class="page-transition"></div>
+	
+<script>
     const themeToggle = document.getElementById('theme-toggle');
     
     const getPreferredTheme = () => {
@@ -198,17 +209,29 @@
         themeToggle.checked = theme === 'light';
     };
     
-    // Initial theme setup
     setTheme(getPreferredTheme());
-    
-    // Toggle theme on checkbox change
+   
     themeToggle.addEventListener('change', () => {
         setTheme(themeToggle.checked ? 'light' : 'dark');
     });
 
     document.getElementById('y').textContent = new Date().getFullYear();
-</script>
 
+    document.querySelectorAll('.section-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const section = header.parentElement;
+            section.classList.toggle('active');
+        });
+
+        header.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                header.click();
+            }
+        });
+    });
+
+</script>
 	
 </body>
 
