@@ -301,7 +301,8 @@
 		outline-offset: 4px;
 	}
 
-/* #region Theme Toggle & Switch */
+
+/* #region theme */
 
 .theme-toggle {
     background: none;
@@ -387,7 +388,6 @@
 }
 /* #endregion */
 
-
 /* #region Collapsible Sections */
 .section-header {
     display: flex;
@@ -424,8 +424,39 @@
 
 /* #endregion */
 
+/* #region footer */
+.section-footer {
+    margin-top: 2rem;
+    text-align: center;
+}
 
-	
+.btn.secondary {
+    background: var(--bg);
+    border: 1px solid var(--accent);
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+}
+
+.btn.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.btn.secondary svg {
+    transition: transform 0.4s ease;
+}
+
+.btn.secondary:hover svg {
+    transform: translateX(8px);
+}
+/* #endregion */	
+
 /*  #region Print Stuff */
 	@media print {
 		header {
