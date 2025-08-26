@@ -180,12 +180,26 @@
 		border-radius: var(--radius);
 		padding: 18px;
 		box-shadow: var(--shadow);
-		transition: background-color 0.3s ease, box-shadow 0.3s ease;
+		transition: transform 0.2s ease,
+                background-color 0.2s ease,
+                box-shadow 0.3s ease,
+                outline-color 0.2s ease;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
 	}
 	
 	.card:hover {
-		border-color: rgba(255, 255, 255, .18)
+		transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--accent);
+    outline-color: var(--accent);
 	}
+
+	.card:focus-visible {
+    outline-color: var(--accent);
+}
+.card:hover .thumb img {
+    transform: scale(1.05);
+}
 	
 	.card .thumb {
 		height: 150px;
@@ -215,7 +229,7 @@
 		font-size: 12px;
 		padding: 4px 10px;
 		border-radius: 999px;
-		border: 1px solid rgba(255, 255, 255, .12);
+		border: 1px solid var(--accent);
 		color: var(--muted)
 	}
 	
