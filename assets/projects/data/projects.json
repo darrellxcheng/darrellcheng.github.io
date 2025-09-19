@@ -3,26 +3,50 @@
     {
       "title": "Arctic Ice Subsurface Scattering Effect",
       "description": "Unity-based simulation of subsurface scattering in Arctic ice, enhancing realism in educational-based environmental visualizations.",
-      "image": "/assets/projects/thumbnails/arctic_SSR/thumbnail.png",
+      "image": "/assets/projects/thumbnails/arctic.png",
       "tags": ["Unity", "C#", "XR", "Education", "Shaders"],
-      "category": "gamedev",
-      "link": "/pages/work.html#arctic-ice-subsurface-scattering-effect"
+      "category": "game development, computer graphics",
+      "link": "#"
     },
     {
       "title": "Proposed ML Pipeline for Improved IBD Diagnosis",
       "description": "Computational machine learning pipeline for genomic data analysis, processing high-dimensional datasets for biological insights in Inflammatory Bowel Disease. Conducted via Bayesian Shrinkage and Polynomial Curve Fitting.",
-      "image": "/assets/projects/thumbnails/proposal/thumbnail.png",
+      "image": "/assets/projects/thumbnails/proposal.png",
       "tags": ["Bioinformatics", "Data Science", "Machine Learning"],
-      "category": "machine learning",
+      "category": "machine learning, data science",
       "link": "/assets/documents/researchproposal.pdf"
     },
     {
       "title": "Hall of Teachers - Polynesian Voyagers Society",
       "description": "Interactive web platform showcasing the stories and contributions of educators within the Polynesian Voyagers Society, promoting cultural heritage and educational resources. Particularly built water effects and fish AI.",
-      "image": "/assets/projects/thumbnails/pvs/thumbnail.png",
+      "image": "/assets/projects/thumbnails/pvs.png",
       "tags": ["C#", "Unity", "XR", "Education"],
-      "category": "gamedev",
-      "link": "/pages/work.html#hall-of-teachers-polynesian-voyagers-society"
+      "category": "game development",
+      "link": "#"
+    },
+    {
+      "title": "Python Video Frame Extractor for 2D Globe Projections",
+      "description": "A Python tool for extracting video frames of two-dimensional Earth and converting them into images/video that can be projected onto a 3D globe in Unity, facilitating the visualization of geographical data.",
+      "image": "/assets/projects/thumbnails/frameextractor.png",
+      "tags": ["Python", "Video Processing", "Unity"],
+      "category": "software development, game development",
+      "link": "#"
+    },
+    {
+      "title": "Analysis of Infant Fecal Microbiome and Metabolome",
+      "description": "A comprehensive study analyzing the fecal microbiome and metabolome of infants to identify potential biomarkers for health and disease.",
+      "image": "/assets/projects/thumbnails/infantmicrobiomethumbnail.png",
+      "tags": ["Bioinformatics", "Data Science", "Genomics"],
+      "category": "data science",
+      "link": "#"
+    },
+    {
+      "title": "Mushroom Edibility Predictor",
+      "description": "Data analysis project to predict the edibility of mushrooms based on their physical features, using a dataset of known edible and poisonous species.",
+      "image": "/assets/projects/thumbnails/mushroom-predictor.png",
+      "tags": ["Machine Learning", "Python", "Data Science"],
+      "category": "data science",
+      "link": "#"
     }
   ]
 }

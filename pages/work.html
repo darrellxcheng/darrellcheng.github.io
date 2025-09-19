@@ -71,61 +71,17 @@
             <p>A collection of my personal and professional projects.</p>
         </section>
 
-        <!-- Software Engineering -->
-        <section class="section collapsible" aria-labelledby="software-title">
-            <div class="section-header" tabindex="0">
-                <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <h2 id="software-title">Software Engineering</h2>
-            </div>
-            <div class="content">
-                <div class="grid" id="software-projects">
-                    
+        <!-- Projects filter toolbar + single grid -->
+        <section class="section" aria-labelledby="projects-title">
+            <div class="section-header" style="align-items:center; gap:16px;">
+                <h2 id="projects-title">Projects</h2>
+                <div id="project-filters" class="filters" role="toolbar" aria-label="Filter projects by category">
+                    <!-- Buttons injected by JS -->
                 </div>
             </div>
-        </section>
-
-        <section class="section collapsible" aria-labelledby="software-title">
-            <div class="section-header" tabindex="0">
-                <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <h2 id="ml-title">Machine Learning</h2>
-            </div>
             <div class="content">
-                <div class="grid" id="ml-projects">
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Bioinformatics -->
-        <section class="section collapsible" aria-labelledby="bio-title">
-            <div class="section-header" tabindex="0">
-                <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <h2 id="bio-title">Data Science</h2>
-            </div>
-            <div class="content">
-                <div class="grid" id="bio-projects">
-                    
-                </div>
-            </div>
-        </section>
-
-        <!-- Game Development -->
-        <section class="section collapsible" aria-labelledby="gamedev-title">
-            <div class="section-header" tabindex="0">
-                <svg class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <h2 id="gamedev-title">Game Development</h2>
-            </div>
-            <div class="content">
-                <div class="grid" id="gamedev-projects">
-                
+                <div class="grid" id="projects-grid">
+                    <!-- All projects rendered here -->
                 </div>
             </div>
         </section>
@@ -168,6 +124,8 @@
         class WorkProjectManager {
             constructor() {
                 this.projects = null;
+                this.categories = new Set();
+                this.activeFilter = 'all';
                 this.loadProjects();
             }
 
@@ -175,32 +133,100 @@
                 try {
                     const response = await fetch('/assets/projects/data/projects.json');
                     this.projects = await response.json();
-                    this.renderAllSections();
+                    this.extractCategories();
+                    this.renderFilterButtons();
+                    this.renderAllProjects();
                 } catch (error) {
                     console.error('Failed to load projects:', error);
                 }
             }
 
-            renderAllSections() {
+            extractCategories() {
                 if (!this.projects) return;
-                
-                this.renderProjectsByCategory('software', '#software-projects');
-                this.renderProjectsByCategory('bioinformatics', '#bio-projects');
-                this.renderProjectsByCategory('gamedev', '#gamedev-projects');
-                this.renderProjectsByCategory('machine learning', '#ml-projects');
+                this.projects.projects.forEach(p => {
+                    // Support both `category` string and `categories` array; allow multiple by splitting on commas
+                    if (Array.isArray(p.categories)) {
+                        p.categories.forEach(c => this.categories.add(c.toLowerCase()));
+                    } else if (p.category) {
+                        // allow comma-separated categories in category field
+                        p.category.toString().split(',').map(s => s.trim()).forEach(c => this.categories.add(c.toLowerCase()));
+                    }
+                    // Also collect tags as implicit categories (optional)
+                });
             }
 
-            renderProjectsByCategory(category, containerId) {
-                const container = document.querySelector(containerId);
-                if (!container || !this.projects) return;
+            renderFilterButtons() {
+                const container = document.getElementById('project-filters');
+                if (!container) return;
 
-                const categoryProjects = this.projects.projects.filter(p => p.category === category);
-                container.innerHTML = categoryProjects.map(project => this.createProjectCard(project)).join('');
+                // Always include 'All'
+                const allBtn = document.createElement('button');
+                allBtn.className = 'filter-btn active';
+                allBtn.dataset.category = 'all';
+                allBtn.textContent = 'All';
+                allBtn.addEventListener('click', () => this.applyFilter('all'));
+                container.appendChild(allBtn);
+
+                Array.from(this.categories).sort().forEach(cat => {
+                    const btn = document.createElement('button');
+                    btn.className = 'filter-btn';
+                    btn.dataset.category = cat;
+                    btn.textContent = this.titleCase(cat);
+                    btn.addEventListener('click', () => this.applyFilter(cat));
+                    container.appendChild(btn);
+                });
+            }
+
+            titleCase(str) {
+                return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1));
+            }
+
+            applyFilter(category) {
+                this.activeFilter = category;
+                // update active button styles
+                document.querySelectorAll('#project-filters .filter-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.category === category);
+                });
+                this.renderAllProjects();
+            }
+
+            renderAllProjects() {
+                if (!this.projects) return;
+                const container = document.getElementById('projects-grid');
+                if (!container) return;
+
+                // Normalize project categories into array
+                const projectList = this.projects.projects.map(p => {
+                    const cats = [];
+                    if (Array.isArray(p.categories)) {
+                        p.categories.forEach(c => cats.push(c.toLowerCase()));
+                    }
+                    if (p.category) {
+                        p.category.toString().split(',').map(s => s.trim()).forEach(c => cats.push(c.toLowerCase()));
+                    }
+                    // dedupe
+                    p._categories = Array.from(new Set(cats));
+                    return p;
+                });
+
+                // Filter if needed (activeFilter === 'all' means no filter)
+                const visible = projectList.filter(p => {
+                    if (this.activeFilter === 'all') return true;
+                    return p._categories.includes(this.activeFilter);
+                });
+
+                container.innerHTML = visible.map(project => this.createProjectCard(project)).join('');
+
+                // stagger animation delays for visible items
+                const galleryItems = container.querySelectorAll('.gallery-item');
+                galleryItems.forEach((item, idx) => {
+                    item.style.animationDelay = `${(idx + 1) * 0.06}s`;
+                });
             }
 
             createProjectCard(project) {
                 return `
-                    <article class="card gallery-item">
+                    <article class="card gallery-item" data-categories="${(project._categories||[]).join(' ')}">
                         <a href="${project.link || '#'}" class="card-link" aria-label="View ${project.title} project">
                             <div class="thumb" aria-hidden="true">
                                 <img src="${project.image}" alt="${project.title} preview" loading="lazy">
@@ -208,7 +234,7 @@
                             <h3>${project.title}</h3>
                             <p>${project.description}</p>
                             <div class="badges">
-                                ${project.tags.map(tag => `<span class="badge">${tag}</span>`).join('')}
+                                ${(project.tags||[]).map(tag => `<span class="badge">${tag}</span>`).join('')}
                             </div>
                         </a>
                     </article>
