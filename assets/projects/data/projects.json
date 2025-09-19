@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "title": "Arctic Ice Subsurface Scattering Effect",
+      "description": "Unity-based simulation of subsurface scattering in Arctic ice, enhancing realism in educational-based environmental visualizations.",
+      "image": "/assets/projects/thumbnails/arctic_SSR/thumbnail.png",
+      "tags": ["Unity", "C#", "XR", "Education", "Shaders"],
+      "category": "gamedev",
+      "link": "/pages/work.html#arctic-ice-subsurface-scattering-effect"
+    },
+    {
+      "title": "Proposed ML Pipeline for Improved IBD Diagnosis",
+      "description": "Computational machine learning pipeline for genomic data analysis, processing high-dimensional datasets for biological insights in Inflammatory Bowel Disease. Conducted via Bayesian Shrinkage and Polynomial Curve Fitting.",
+      "image": "/assets/projects/thumbnails/proposal/thumbnail.png",
+      "tags": ["Bioinformatics", "Data Science", "Machine Learning"],
+      "category": "machine learning",
+      "link": "/assets/documents/researchproposal.pdf"
+    },
+    {
+      "title": "Hall of Teachers - Polynesian Voyagers Society",
+      "description": "Interactive web platform showcasing the stories and contributions of educators within the Polynesian Voyagers Society, promoting cultural heritage and educational resources. Particularly built water effects and fish AI.",
+      "image": "/assets/projects/thumbnails/pvs/thumbnail.png",
+      "tags": ["C#", "Unity", "XR", "Education"],
+      "category": "gamedev",
+      "link": "/pages/work.html#hall-of-teachers-polynesian-voyagers-society"
+    }
+  ]
+}

@@ -37,7 +37,7 @@
 		color: var(--text);
 		background: radial-gradient(600px 600px at 20% -10%, rgba(16, 68, 255, 0.25), transparent 50%), radial-gradient(800px 500px at 90% 10%, rgba(255, 255, 255, 0.15), transparent 40%), var(--bg);
 		line-height: 1.6;
-		transition: background 0.3s ease, color 0.3s ease;
+		transition: 0.3s ease, color 0.3s ease;
 	}
 	
 	.container {
@@ -170,7 +170,9 @@
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
-		gap: 16px
+		gap: 20px;
+		margin: 16px 0;
+		padding: 8px 0; /* Add vertical padding for hover effects */
 	}
 	
 	.card {
@@ -201,12 +203,96 @@
     transform: scale(1.05);
 }
 	
-	.card .thumb {
-		height: 150px;
-		border-radius: 12px;
-		background: linear-gradient(135deg, rgba(138, 163, 255, .25), rgba(112, 255, 213, .2));
-		margin-bottom: 12px
-	}
+.card .thumb {
+    height: 200px;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(135deg, rgba(138, 163, 255, .25), var(--accent));
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Handle missing images gracefully */
+.card .thumb img[src=""],
+.card .thumb img:not([src]),
+.card .thumb img[src="#"] {
+    display: none;
+}
+
+.card .thumb:has(img[src=""]),
+.card .thumb:has(img:not([src])),
+.card .thumb:has(img[src="#"]) {
+    background: linear-gradient(135deg, rgba(138, 163, 255, .25), rgba(112, 255, 213, .2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .thumb:has(img[src=""]):after,
+.card .thumb:has(img:not([src])):after,
+.card .thumb:has(img[src="#"]):after {
+    content: "📁";
+    font-size: 48px;
+    opacity: 0.5;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+.card-link h3 {
+    color: var(--text);
+    transition: color 0.2s ease;
+}
+
+.card:hover .card-link h3 {
+    color: var(--accent);
+}
+
+.card:focus-within {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Gallery animations for work page */
+.gallery-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.collapsible .gallery-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.collapsible.active .gallery-item {
+    animation: fadeInUp 0.6s ease forwards;
+}
 	
 	.card h3 {
 		margin: 4px 0 6px;
@@ -425,6 +511,7 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
+    padding: 0 4px; /* Add horizontal padding to prevent clipping */
 }
 
 .collapsible.active .chevron {
@@ -433,7 +520,9 @@
 
 .collapsible.active .content {
     max-height: 1000px; 
+    overflow: visible; /* Allow hover effects to show outside bounds */
     transition: max-height 0.5s ease-in;
+    padding: 0 4px 20px 4px; /* Add bottom padding for shadow space */
 }
 
 /* #endregion */
