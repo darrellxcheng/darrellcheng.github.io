@@ -30,7 +30,7 @@
       "image": "/assets/projects/thumbnails/frameextractor.png",
       "tags": ["Python", "Video Processing", "Unity"],
       "category": "software development, game development",
-      "link": "#"
+      "link": "https://github.com/darrellxcheng/geo-project"
     },
     {
       "title": "Analysis of Infant Fecal Microbiome and Metabolome",
@@ -46,7 +46,7 @@
       "image": "/assets/projects/thumbnails/mushroom-predictor.png",
       "tags": ["Machine Learning", "Python", "Data Science"],
       "category": "data science",
-      "link": "#"
+      "link": "/assets/projects/data/mushroom/Project.ipynb"
     }
   ]
 }
